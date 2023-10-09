@@ -16,19 +16,22 @@ namespace InnergyRecruitmentAPI.Classes
             var mapper = new MapperConfiguration(cfg => cfg.AddProfile<ApiMapperProfile>()).CreateMapper();
             var results = mapper.Map<IEnumerable<PricingResult>>(data);
 
-            evaluate(results, obj);
+            Evaluate(results, obj);
             return results;
         }
 
-        private static void evaluate(IEnumerable<PricingResult> results, object obj)
+        private static void Evaluate(IEnumerable<PricingResult> results, object obj)
         {
-            foreach (var item in results)
+            if (results.Any())
             {
-                evaluate(item, obj);
+                foreach (var item in results)
+                {
+                    Evaluate(item, obj);
+                }
             }
         }
 
-        private static void evaluate(PricingResult result, object obj)
+        private static void Evaluate(PricingResult result, object obj)
         {
             var type = obj.GetType();
             var propertyInfo = type.GetProperty(result.Property, System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.Instance);
@@ -41,7 +44,7 @@ namespace InnergyRecruitmentAPI.Classes
                     break;
                 case "Contains":
                     var array = value as IEnumerable<string>;
-                    result.Success = array.FirstOrDefault(x => x.Equals(result.Value, StringComparison.OrdinalIgnoreCase)) != null;
+                    result.Success = array?.FirstOrDefault(x => x.Equals(result.Value, StringComparison.OrdinalIgnoreCase)) != null;
                     break;
                 default:
                     break;
@@ -49,7 +52,7 @@ namespace InnergyRecruitmentAPI.Classes
 
             if (result.Success && result.Children.Any())
             {
-                evaluate(result.Children, obj);
+                Evaluate(result.Children, obj);
             }
         }
     }

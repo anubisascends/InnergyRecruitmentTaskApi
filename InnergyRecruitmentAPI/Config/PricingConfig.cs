@@ -1,5 +1,4 @@
 ﻿using InnergyRecruitmentAPI.Classes;
-using InnergyRecruitmentAPI.Config.Interfaces;
 
 namespace InnergyRecruitmentAPI.Config
 {

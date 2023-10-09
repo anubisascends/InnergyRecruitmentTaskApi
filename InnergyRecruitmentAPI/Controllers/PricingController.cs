@@ -21,17 +21,11 @@ namespace InnergyRecruitmentAPI.Controllers
 
         [HttpGet]
         [Route("years")]
-        public IActionResult GetYears()
-        {
-            return Ok(Pricing.AvailableYears);
-        }
+        public IActionResult GetYears() => Ok(Pricing.AvailableYears);
 
         [HttpGet]
         [Route("services")]
-        public IActionResult GetServices()
-        {
-            return Ok(Pricing.AvailableServices);
-        }
+        public IActionResult GetServices() => Ok(Pricing.AvailableServices);
 
         [HttpPost]
         public IActionResult GetPrice([FromBody] PricingObject body)
