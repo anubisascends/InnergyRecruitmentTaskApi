@@ -1,0 +1,145 @@
+{
+  "AvailableYears": [ 2020, 2021, 2022 ],
+  "AvailableServices": [ "Photography", "VideoRecording", "BlurayPackage", "TwoDayEvent", "WeddingSession" ],
+  "Pricing": [
+    {
+      "Property": "Services",
+      "Operator": "Contains",
+      "Value": "Photography",
+      "Children": [
+        {
+          "Property": "Year",
+          "Operator": "EqualTo",
+          "Value": "2020",
+          "Result": "1700"
+        },
+        {
+          "Property": "Year",
+          "Operator": "EqualTo",
+          "Value": "2021",
+          "Result": "1800"
+        },
+        {
+          "Property": "Year",
+          "Operator": "EqualTo",
+          "Value": "2022",
+          "Result": "1900"
+        }
+      ]
+    },
+    {
+      "Property": "Services",
+      "Operator": "Contains",
+      "Value": "VideoRecording",
+      "Children": [
+        {
+          "Property": "Year",
+          "Operator": "EqualTo",
+          "Value": "2020",
+          "Result": "1700"
+        },
+        {
+          "Property": "Year",
+          "Operator": "EqualTo",
+          "Value": "2021",
+          "Result": "1800"
+        },
+        {
+          "Property": "Year",
+          "Operator": "EqualTo",
+          "Value": "2022",
+          "Result": "1900"
+        }
+      ]
+    },
+    {
+      "Property": "Services",
+      "Operator": "Contains",
+      "Value": "BlurayPackage",
+      "Children": [
+        {
+          "Property": "Services",
+          "Operator": "Contains",
+          "Value": "Photography",
+          "Result": "300"
+        }
+      ]
+    },
+    {
+      "Property": "Services",
+      "Operator": "Contains",
+      "Value": "Photography",
+      "Children": [
+        {
+          "Property": "Services",
+          "Operator": "Contains",
+          "Value": "VideoRecording",
+          "Children": [
+            {
+              "Property": "Year",
+              "Operator": "EqualTo",
+              "Value": "2020",
+              "Result": "-1200"
+            },
+            {
+              "Property": "Year",
+              "Operator": "EqualTo",
+              "Value": "2021",
+              "Result": "-1300"
+            },
+            {
+              "Property": "Year",
+              "Operator": "EqualTo",
+              "Value": "2022",
+              "Result": "-1300"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "Property": "Services",
+      "Operator": "Contains",
+      "Value": "Photography",
+      "Children": [
+        {
+          "Property": "Services",
+          "Operator": "Contains",
+          "Value": "WeddingSession",
+          "Children": [
+            {
+              "Property": "Year",
+              "Operator": "EqualTo",
+              "Value": "2020",
+              "Result": "-300"
+            },
+            {
+              "Property": "Year",
+              "Operator": "EqualTo",
+              "Value": "2021",
+              "Result": "-300"
+            },
+            {
+              "Property": "Year",
+              "Operator": "EqualTo",
+              "Value": "2022",
+              "Result": "-600"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "Property": "Services",
+      "Operator": "Contains",
+      "Value": "TwoDayEvent",
+      "Result": "400"
+    },
+    {
+      "Property": "Services",
+      "Operator": "Contains",
+      "Value": "WeddingSession",
+      "Result": "600"
+    }
+  ]
+}
